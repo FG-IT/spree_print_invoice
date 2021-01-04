@@ -7,24 +7,29 @@ module Spree
                    :tax_address,
                    :item_total,
                    :total,
+                   :order_date,
                    :payments,
                    :shipments
 
     def items
       printable.line_items.map do |item|
         Spree::Printables::Invoice::Item.new(
-          sku: item.variant.sku,
-          name: item.variant.name,
-          options_text: item.variant.options_text,
-          price: item.price,
-          quantity: item.quantity,
-          total: item.total
+            sku: item.variant.sku,
+            name: item.variant.name,
+            options_text: item.variant.options_text,
+            price: item.price,
+            quantity: item.quantity,
+            total: item.total
         )
       end
     end
 
     def firstname
       printable.tax_address.firstname
+    end
+
+    def order_date
+      printable.order_date
     end
 
     def lastname

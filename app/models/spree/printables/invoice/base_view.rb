@@ -33,8 +33,8 @@ module Spree
       adjustments = []
       all_adjustments.group_by(&:label).each do |label, adjustment_group|
         adjustments << Spree::Printables::Invoice::Adjustment.new(
-          label: label,
-          amount: adjustment_group.map(&:amount).sum
+            label: label,
+            amount: adjustment_group.map(&:amount).sum
         )
       end
       adjustments
@@ -64,6 +64,10 @@ module Spree
       increase_invoice_number! if use_sequential_number?
     end
 
+    def created_at
+      raise NotImplementedError, 'Please implement created_at'
+    end
+
     private
 
     def increase_invoice_number!
@@ -72,7 +76,7 @@ module Spree
 
     def use_sequential_number?
       @_use_sequential_number ||=
-        Spree::PrintInvoice::Config.use_sequential_number?
+          Spree::PrintInvoice::Config.use_sequential_number?
     end
   end
 end

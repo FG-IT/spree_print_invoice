@@ -32,6 +32,10 @@ module Spree
       created_at.to_date
     end
 
+    def order_date
+      printable.order_date.to_date
+    end
+
     def template_name
       "spree/printables/#{single_lower_case_name(printable.class.name)}/#{template}"
     end

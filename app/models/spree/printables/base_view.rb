@@ -34,5 +34,9 @@ module Spree
     def number
       raise NotImplementedError, 'Please implement number'
     end
+
+    def order_date
+      raise NotImplementedError, 'Please implement order_date'
+    end
   end
 end
