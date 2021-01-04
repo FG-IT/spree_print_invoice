@@ -24,7 +24,8 @@ en:
       on_date: Order Date
       packaging_slip: Packaging Slip
       page: Page
-      payment_via: "%{gateway} Online Payment #%{number} on %{date}"
+      payment_via: "%{gateway} #%{number} on %{date}"
+      order_placed: "Order Placed: %{date}"
       preferences:
         next_number: Print Invoice Next Number
         use_footer: Use Footer
@@ -50,8 +51,8 @@ en:
       vat: VAT not applicable
       pdf_legend: PDF Layout
       invoice_slip_legend: Invoice/Slip Content
-      invoice_number: 'Invoice number: %{number}'
-      invoice_date: 'Invoice date: %{date}'
+      invoice_number: 'Order number: %{number}'
+      invoice_date: 'Order date: %{date}'
       date: Date
       number: Number
       firstname: First name

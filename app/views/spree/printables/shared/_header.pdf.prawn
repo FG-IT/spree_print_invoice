@@ -10,5 +10,5 @@ pdf.grid([0,3], [1,4]).bounding_box do
 
   pdf.text Spree.t(:invoice_number, scope: :print_invoice, number: printable.number), align: :right
   pdf.move_down 2
-  pdf.text Spree.t(:invoice_date, scope: :print_invoice, date: I18n.l(printable.date)), align: :right
+  pdf.text Spree.t(:invoice_date, scope: :print_invoice, date: I18n.l(printable.order_date)), align: :right
 end
