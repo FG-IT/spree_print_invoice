@@ -20,17 +20,26 @@ prawn_document(force_download: true) do |pdf|
       render 'spree/printables/shared/address_block', pdf: pdf, printable: doc
     end
 
-    pdf.move_down 10
+    pdf.move_down 15
 
+    pdf.text 'Items'
     render 'spree/printables/shared/packaging_slip/items', pdf: pdf, printable: doc
+    pdf.move_down 15
 
+    if doc.shipments.select { |shipment| shipment.tracking.present? }.length > 0
+      pdf.text 'Shipments'
+      render 'spree/printables/shared/packaging_slip/shipments', pdf: pdf, invoice: doc
+      pdf.move_down 15
+    end
+    
+    render 'spree/printables/shared/totals', pdf: pdf, invoice: doc
     pdf.move_down 30
     pdf.text Spree::PrintInvoice::Config[:anomaly_message], align: :left, size: font_style[:size]
 
-    pdf.move_down 20
-    pdf.bounding_box([0, pdf.cursor], width: pdf.bounds.width, height: 250) do
-      pdf.transparent(0.5) { pdf.stroke_bounds }
-    end
+    # pdf.move_down 20
+    # pdf.bounding_box([0, pdf.cursor], width: pdf.bounds.width, height: 250) do
+    #   pdf.transparent(0.5) { pdf.stroke_bounds }
+    # end
   end
 
   # Footer

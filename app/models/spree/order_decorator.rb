@@ -10,6 +10,7 @@ module Spree
       base.has_one :packaging_slip, -> { where(template: 'packaging_slip') },
                    class_name: 'Spree::BookkeepingDocument',
                    as: :printable
+            
 
       base.delegate :number, :date, :order_date, to: :invoice, prefix: true
 
@@ -43,6 +44,7 @@ module Spree
 
     def invoice_for_order
       bookkeeping_documents.create(template: 'invoice')
+      # bookkeeping_documents.create(template: 'shipment')
       bookkeeping_documents.create(template: 'packaging_slip')
     end
 

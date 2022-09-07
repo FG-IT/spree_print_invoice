@@ -1,0 +1,1 @@
+render 'spree/printables/shared/shipment/base', doc: @doc

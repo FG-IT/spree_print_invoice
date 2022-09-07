@@ -1,0 +1,13 @@
+<% if can? :show, Spree::Order %>
+  <% if @order && @order.completed_at? %>
+
+  <%= button_link_to Spree.t(:documents, scope: [:print_invoice]),
+                       spree.admin_order_bookkeeping_documents_path(@order),
+                      
+                       icon: 'file.svg'
+    %>
+
+
+  
+  <% end %>
+<% end %>

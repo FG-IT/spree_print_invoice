@@ -12,7 +12,7 @@ en:
         invoice: Print Invoice
         packaging_slip: Print Packaging Slip
       order_invoice: Invoice
-      order_packaging_slip: Packaging Slip
+      order_packaging_slip: Shipment
       reimbursement_invoice: Reimbursement Invoice
       invoice: Invoice
       invoices: Invoices
@@ -22,9 +22,9 @@ en:
       of: of
       via: via
       on_date: Order Date
-      packaging_slip: Packaging Slip
+      packaging_slip: Shipment
       page: Page
-      payment_via: "%{gateway} #%{number} on %{date}"
+      payment_via: "%{gateway} on %{date}"
       order_placed: "Order Placed: %{date}"
       preferences:
         next_number: Print Invoice Next Number
