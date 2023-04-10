@@ -12,7 +12,7 @@ en:
         invoice: Print Invoice
         packaging_slip: Print Packaging Slip
       order_invoice: Invoice
-      order_packaging_slip: Shipment
+      order_packaging_slip: Invoice
       reimbursement_invoice: Reimbursement Invoice
       invoice: Invoice
       invoices: Invoices
