@@ -18,8 +18,9 @@ shipping << "\n#{ship_address.address2}" unless ship_address.address2.blank?
 shipping << "\n#{ship_address.city}, #{ship_address.state_text} #{ship_address.zipcode}"
 shipping << "\n#{ship_address.country.name}"
 shipping << "\n#{ship_address.phone}"
-shipping << "\n\n#{Spree.t(:via, scope: :print_invoice)} #{printable.shipping_methods.join(", ")}"
 
 data = [[address_cell_billing, address_cell_shipping], [billing, shipping]]
 
-pdf.table(data, position: :center, column_widths: [pdf.bounds.width / 2, pdf.bounds.width / 2])
+pdf.table(data, position: :center, column_widths: [pdf.bounds.width / 2, pdf.bounds.width / 2], cell_style: { borders: [] }) do
+  row(0).style  font_style: :bold, background_color: 'CCCCCC'
+end

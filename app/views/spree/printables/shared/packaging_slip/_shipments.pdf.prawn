@@ -18,8 +18,8 @@ end
 
 column_widths = [0.225, 0.3, 0.3, 0.175].map { |w| w * pdf.bounds.width }
 
-pdf.table(data, header: true, position: :center, column_widths: column_widths) do
-  row(0).style align: :center, font_style: :bold
+pdf.table(data, header: true, position: :center, column_widths: column_widths, cell_style: { borders: [] }) do
+  row(0).style align: :center, font_style: :bold, background_color: 'CCCCCC'
   column(0..2).style align: :left
   column(3).style align: :center
 end
