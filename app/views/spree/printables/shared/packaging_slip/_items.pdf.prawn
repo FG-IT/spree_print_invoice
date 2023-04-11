@@ -24,4 +24,5 @@ pdf.table(data, header: true, position: :center, column_widths: column_widths, c
   row(0).style align: :center, font_style: :bold, background_color: 'CCCCCC'
   column(0..2).style align: :left
   column(3).style align: :center
+  column(4).style align: :center
 end
