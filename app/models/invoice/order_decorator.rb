@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Spree
+module Invoice 
   module OrderDecorator
     def self.prepended(base)
       base.has_many :bookkeeping_documents, as: :printable, dependent: :destroy
@@ -53,4 +53,4 @@ module Spree
     end
   end
 end
-::Spree::Order.prepend Spree::OrderDecorator
+::Spree::Order.prepend Invoice::OrderDecorator
