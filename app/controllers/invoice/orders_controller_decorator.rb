@@ -1,8 +1,6 @@
 module Invoice::OrdersControllerDecorator
-  def self.prepended(base)
-    base.before_action :load_order, only: [:invoice]
-  end
   def invoice
+    load_order
     @bookkeeping_document = @order.packaging_slip;
     respond_with(@bookkeeping_document) do |format|
       format.pdf do
@@ -13,12 +11,8 @@ module Invoice::OrdersControllerDecorator
 
   private
 
-  def order_focused?
-    params[:id].present?
-  end
-
   def load_order
-    @order = Spree::Order.find_by(number: params[:id])
+    @order = ::Spree::Order.find_by(number: params[:id])
   end
 
 end
