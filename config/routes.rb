@@ -10,5 +10,5 @@ Spree::Core::Engine.add_routes do
     get 'orders/:id/invoice', to: 'orders#invoice', as: :admin_order_invoice
     resource :print_invoice_settings, only: [:edit, :update]
   end
-  get 'orders/:id/invoice', to: 'orders#invoice'
+  get 'orders/:id/invoice', to: 'orders#invoice', as: :order_invoice
 end
