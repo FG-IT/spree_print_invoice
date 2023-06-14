@@ -8,9 +8,14 @@ header =  [
 data = [header]
 
 printable.items.each_with_index do |item, index|
+	if item.options_text.present?
+		item_name = item.name + "(#{item.options_text})" 
+	else
+		item_name = item.name
+	end
   row = [
 		index + 1,
-    item.name,
+		item_name,
     item.display_price.to_s,
     item.quantity,
     item.display_total.to_s
